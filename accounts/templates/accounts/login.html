@@ -7,8 +7,30 @@
 </head>
 <body>
 
+{% if error %}
+    {{ error }}
+    <br/>
+    <br/>
+{% endif %}
+
 {% block content %}
-    login!
+    <h1>Login</h1>
+
+    <form method="POST" action="{% url 'login' %}">
+        {% csrf_token %}
+        Username:
+        <br/>
+        <input type="text" name="username"/>
+        <br/>
+        Password:
+        <br/>
+        <input type="password" name="password"/>
+        <br/>
+        <br/>
+        <input class="btn btn-primary" type="submit" value="Login"/>
+    </form>
+    <br/>
+
 {% endblock %}
 
 </body>
