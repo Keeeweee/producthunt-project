@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% extends 'base.html'%}
+    <meta charset="UTF-8">
+    <title>ProductHunt</title>
+</head>
+<body>
+
+{% if error %}
+    {{ error }}
+    <br/>
+    <br/>
+{% endif %}
+
+{% block content %}
+    <h1>Sign Up!</h1>
+
+    <form method="POST" action="{% url 'signup' %}">
+        {% csrf_token %}
+        Username:
+        <br/>
+        <input type="text" name="username"/>
+        <br/>
+        Password:
+        <br/>
+        <input type="password" name="password"/>
+        <br/>
+        Confirm Password:
+        <br/>
+        <input type="password" name="confirmation_password"/>
+        <br/>
+        <br/>
+        <input class="btn btn-primary" type="submit" value="Sign Up!"/>
+    </form>
+    <br/>
+
+{% endblock %}
+
+</body>
+</html>
